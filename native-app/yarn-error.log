@@ -1,0 +1,44 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-navigation
+
+PATH: 
+  C:\Users\jonas\bin;D:\Skole Ting\Git\mingw64\bin;D:\Skole Ting\Git\usr\local\bin;D:\Skole Ting\Git\usr\bin;D:\Skole Ting\Git\usr\bin;D:\Skole Ting\Git\mingw64\bin;D:\Skole Ting\Git\usr\bin;C:\Users\jonas\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Skype\Phone;C:\Program Files\MySQL\MySQL Utilities 1.6;D:\Skole Ting\Git\cmd;C:\Program Files (x86)\Yarn\bin;C:\WINDOWS\System32\OpenSSH;C:\Program Files\nodejs;C:\Users\jonas\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\jonas\AppData\Local\GitHubDesktop\bin;C:\Users\jonas\AppData\Local\Yarn\bin;C:\Users\jonas\AppData\Local\Microsoft\WindowsApps;C:\Users\jonas\AppData\Roaming\npm;D:\Skole Ting\Git\usr\bin\vendor_perl;D:\Skole Ting\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.7.0
+
+Node version: 
+  8.12.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'D:\Nye netBeans 3 semester 2\React uger 10+\ca3\ca3-native\node_modules\.cache\@babel\register'
+
+npm manifest: 
+  {
+    "name": "empty-project-template",
+    "main": "node_modules/expo/AppEntry.js",
+    "private": true,
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "eject": "expo eject"
+    },
+    "dependencies": {
+      "expo": "^31.0.2",
+      "react": "16.5.0",
+      "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz"
+    },
+    "devDependencies": {
+      "babel-preset-expo": "^5.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
