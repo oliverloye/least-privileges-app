@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Ca3Backend2018:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Ca3Backend2018</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Ca3Backend2018-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Ca3Backend2018:war exploded" />
+    </root>
+  </artifact>
+</component>
