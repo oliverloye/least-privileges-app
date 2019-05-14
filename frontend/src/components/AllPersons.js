@@ -11,10 +11,12 @@ export default function AllPersons(props) {
       <td>{person.gender}</td>
       <td>{person.email}</td>
       {facade.getProfile().roles.includes("admin") ? (
-        <td><a href="/#/employees" onClick={props.onEdit} id={person.id}>edit</a>/<a href="/#/employees" onClick={props.delete} id={person.id}>delete</a></td>
-        ) : null}
+        <td><a className="delete-link" href="/#/employees" onClick={props.onEdit} id={person.id}>edit</a>/<a className="delete-link" href="/#/employees" onClick={props.delete} id={person.id}>delete</a></td>
+        ) : <td><a className="delete-link" href="/#/employees" onClick={props.delete} id={person.id}>delete</a></td> }
     </tr>
   )
+
+  // <td><a className="delete-link" href="/#/employees" onClick={props.onEdit} id={person.id}>edit</a>/<a className="delete-link" href="/#/employees" onClick={props.delete} id={person.id}>delete</a></td>
   
   
   // var details = myPersons.map((element) => {
@@ -39,8 +41,6 @@ export default function AllPersons(props) {
           {personInfo}
         </tbody>
       </table>
-      <p>Please make me show all persons here in the table</p>
-      <p>And update me when new are added </p>
     </div>
   )
 }

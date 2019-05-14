@@ -82,7 +82,7 @@ export default class AddEditPerson extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-offset-3 col-sm-9">
-              <button type="submit" className="btn btn-default">Submit</button>
+              <button type="submit" className="btn btn-success">Submit</button>
             </div>
           </div>
         </form>

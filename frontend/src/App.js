@@ -152,7 +152,7 @@ const PageViewNav = ({match}) => {
 const NavMenu = ({match}) => {
     return (
         <nav className="navbar navbar-expand-sm bg-dark navbar-dark mb-4">
-            <ul className="navbar-nav">
+            <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
                     <NavLink className="nav-link" exact to="/">
                         Home
