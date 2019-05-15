@@ -33,7 +33,7 @@ public class DemoResource {
     @RolesAllowed("user")
     public String getFromUser(){
         String user = securityContext.getUserPrincipal().getName();
-        return "\"Hello from USER: "+ user+"\"";
+        return "\"Logged in as "+ user+"\"";
     }
     
     @GET
@@ -42,8 +42,26 @@ public class DemoResource {
     @RolesAllowed("admin")
     public String getFromAdmin() {
         String user = securityContext.getUserPrincipal().getName();
-        return "\"Hello from ADMIN: "+ user+"\"";
+        return "\"Logged in as "+ user+"\"";
         
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("readonly")
+    @RolesAllowed("readonly")
+    public String getFromReadOnly(){
+        String user = securityContext.getUserPrincipal().getName();
+        return "\"Logged in as "+ user+"\"";
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("superuser")
+    @RolesAllowed("superuser")
+    public String getFromSuperuser(){
+        String user = securityContext.getUserPrincipal().getName();
+        return "\"Logged in as "+ user+"\"";
     }
     
     

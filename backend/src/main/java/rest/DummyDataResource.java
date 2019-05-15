@@ -14,6 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.Scanner;
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -45,6 +46,7 @@ public class DummyDataResource {
     }
     
     
+    //@RolesAllowed({"admin", "superuser"})
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllItems() {

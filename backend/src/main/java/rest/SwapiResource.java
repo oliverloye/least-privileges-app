@@ -62,7 +62,7 @@ public class SwapiResource {
 
     @GET
     @Path("/favorit")
-    @RolesAllowed("admin")
+    @RolesAllowed({"admin", "superuser", "user"})
     @Produces(MediaType.APPLICATION_JSON)
     public String getMyFavorite() throws IOException {
 
