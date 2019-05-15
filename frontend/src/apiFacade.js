@@ -12,7 +12,7 @@ function handleHttpErrors(res) {
 class ApiFacade {
     fetchData = (role) => {
         const options = this.makeOptions("GET", true); //True add's the token
-        return fetch(URL + "api/info/" + role, options)
+        return fetch(URL + "/api/info/" + role, options)
             .then(handleHttpErrors);
     };
 
@@ -64,7 +64,7 @@ class ApiFacade {
     }
 
     fetchAllDummy = () => {
-        const options = this.makeOptions("GET");
+        const options = this.makeOptions("GET", this.getToken);
         return fetch(URL + "/api/dummy", options, true)
             .then(handleHttpErrors)
     }

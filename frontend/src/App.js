@@ -7,6 +7,8 @@ import DummyTableClient from "./tables/DummyDataTableClient";
 import DummyTableRemote from "./tables/DummyDataTableRemote";
 import SwapiTable from "./tables/PersonTable";
 import Employees from "./tables/Employees";
+import Database from "./components/Database";
+import Notes from "./components/Notes";
 
 const URL = require('../package.json').config.url;
 
@@ -52,7 +54,7 @@ class LogIn extends Component {
                             required
                         />
                     </div>
-                    <button type="submit" className="btn btn-block">
+                    <button type="submit" className="btn btn-primary">
                         Submit
                     </button>
                 </form>
@@ -68,10 +70,7 @@ class LoggedIn extends Component {
     }
 
     componentDidMount() {
-        let role = facade.getProfile(this.state.dataFromServer).roles;
-        if(role.length > 5) {
-            this.setState({dataFromServer: "Hello super user"});
-        } else
+        const role = facade.getProfile(this.state.dataFromServer).roles;
         facade.fetchData(role).then(res => this.setState({dataFromServer: res}));
         console.log(facade.getProfile(this.state.dataFromServer).roles);
         
@@ -114,6 +113,8 @@ class App extends Component {
                             <Route path="/getdummy" render={() => <div><DummyTableClient facade={facade}/></div>}/>
                             <Route path="/getdummy2" render={() => <div><DummyTableRemote facade={facade}/></div>}/>
                             <Route path="/employees" render={() => <div><Employees databaseFacade={databaseFacade}/></div>}/>
+                            <Route path="/database" render={() => <div><Database /></div>}/>
+                            <Route path="/notes" render={() => <div><Notes /></div>}/>
                             <Route path="/profilepage" render={() =>
                                 <div>
                                     {!this.state.loggedIn ? (<LogIn login={this.login}/>) : (
@@ -137,13 +138,19 @@ const PageViewNav = ({match}) => {
     return (
         <div>
             <ul className="categoryList">
-                <li><NavLink exact to="/employees">Lookup employe</NavLink></li>
-                <li><NavLink exact to="/getperson">Get Person</NavLink></li>
-                {facade.getProfile().roles.includes("admin") ? (
-                    <li><NavLink exact to="/getfavorite">Get Favorite</NavLink></li>
+                <li><NavLink exact to="/employees">Potential clients</NavLink></li>
+                {facade.getProfile().roles.includes("admin") || facade.getProfile().roles.includes("superuser") ? (
+                    <div>
+                    <li><NavLink exact to="/getperson">Board members</NavLink></li>
+                    <li><NavLink exact to="/database">Database</NavLink></li>
+                    <li><NavLink exact to="/notes">Notes from boss</NavLink></li>
+                    </div>
                 ) : null}
-                <li><NavLink exact to="/getdummy">Get Dummy Pagination Client</NavLink></li>
-                <li><NavLink exact to="/getdummy2">Get Dummy Pagination Remote</NavLink></li>
+                {facade.getProfile().roles.includes("user") ? (
+                <li><NavLink exact to="/getfavorite">The best movie characters in the world</NavLink></li>
+                ) : null}
+                <li><NavLink exact to="/getdummy">Company employees</NavLink></li>
+                
             </ul>
         </div>
     )
@@ -170,10 +177,10 @@ const NavMenu = ({match}) => {
 
 const WelcomeMessage = ({match}) => {
     return (
-        <div>
-            <h1>Welcome to CA3</h1>
+        <div className="text-center">
+            <h1>Company Name!</h1>
             <p>
-                Click <NavLink to="/profilepage">here</NavLink> to go to your profile page.
+                Click <NavLink to="/profilepage">here</NavLink> to go to login.
             </p>
         </div>
     );

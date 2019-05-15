@@ -34,12 +34,11 @@ class FetchFavoriteList extends Component {
   render() {
     return (
       <div>
-        {this.props.facade.getProfile().roles.includes("admin") ? (
-          <h2>Fetching from {this.state.dataFromServer.length} different endpoints.</h2>
-        ) : <h2>Access denied!</h2>}
+        <h2>Favorit chars of all time!</h2>
         {this.mappedList()}
+        <p>But the real MVP is superman - edited by "salesmanager"</p>
         <NavLink activeClassName="active" to="/profilepage">
-          <button className="btn btn-default">Back</button>
+          <button className="btn btn-primary">Back</button>
         </NavLink>
       </div>
     );
@@ -47,3 +46,5 @@ class FetchFavoriteList extends Component {
 }
 
 export default FetchFavoriteList;
+
+//<h2>Fetching from {this.state.dataFromServer.length} different endpoints.</h2>

@@ -3,6 +3,7 @@ import BootstrapTable from "react-bootstrap-table-next";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import filterFactory, { textFilter } from "react-bootstrap-table2-filter";
 import paginationFactory from "react-bootstrap-table2-paginator";
+import {NavLink} from 'react-router-dom';
 
 class App extends Component {
     state = { names: [], msg: "" };
@@ -44,8 +45,11 @@ class App extends Component {
         ];
         return (
             <div>
-                <h3>Build table client</h3>
+                <h3>Company employees</h3>
                 {this.state.msg}
+                <NavLink activeClassName="active" to="/profilepage">
+                    <button className="btn btn-primary mb-2">Back</button>
+                </NavLink>
                 <BootstrapTable
                     striped
                     hover
@@ -57,6 +61,7 @@ class App extends Component {
                     pagination={paginationFactory()}
                 />
             </div>
+            
         );
     }
 }

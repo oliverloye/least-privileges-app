@@ -1,5 +1,6 @@
 import React from "react"
 import facade from "../apiFacade";
+import {NavLink} from 'react-router-dom';
 
 export default function AllPersons(props) {
   const { persons } = props;
@@ -10,13 +11,11 @@ export default function AllPersons(props) {
       <td>{person.name}</td>
       <td>{person.gender}</td>
       <td>{person.email}</td>
-      {facade.getProfile().roles.includes("admin") ? (
-        <td><a className="delete-link" href="/#/employees" onClick={props.onEdit} id={person.id}>edit</a>/<a className="delete-link" href="/#/employees" onClick={props.delete} id={person.id}>delete</a></td>
-        ) : <td><a className="delete-link" href="/#/employees" onClick={props.delete} id={person.id}>delete</a></td> }
+      {facade.getProfile().roles.includes("readonly") ? (
+        null
+        ) : <td><a className="delete-link" href="/#/employees" onClick={props.onEdit} id={person.id}>edit</a>/<a className="delete-link" href="/#/employees" onClick={props.delete} id={person.id}>delete</a></td> }
     </tr>
   )
-
-  // <td><a className="delete-link" href="/#/employees" onClick={props.onEdit} id={person.id}>edit</a>/<a className="delete-link" href="/#/employees" onClick={props.delete} id={person.id}>delete</a></td>
   
   
   // var details = myPersons.map((element) => {
@@ -32,7 +31,8 @@ export default function AllPersons(props) {
     
   return (
     <div>
-      <p>Current number of employees in the company: {persons.length}</p>
+      <p>Current number of clients: {persons.length}</p>
+      <p><i>Only the Sales Manager is allowed to delete clients!</i></p>
       <table className="table">
         <thead>
           <tr><th>Age</th><th>Name</th><th>Gender</th><th>Email</th><th></th></tr>
@@ -41,6 +41,9 @@ export default function AllPersons(props) {
           {personInfo}
         </tbody>
       </table>
+      <NavLink activeClassName="active" to="/profilepage">
+          <button className="btn btn-primary">Back</button>
+      </NavLink>
     </div>
   )
 }

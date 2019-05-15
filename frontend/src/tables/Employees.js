@@ -69,15 +69,16 @@ class Employees extends Component {
         <div style={{ margin: 20, width: "100%" }}>
           <div className="row">
             <div className="col-md-6">
-              <h3>Employees</h3>
+              <h3>Clients</h3>
               <AllPersons delete={this.delete} onEdit={this.onEdit} persons={this.state.persons} />
             </div>
-            {apiFacade.getProfile().roles.includes("admin") ? (
+            {apiFacade.getProfile().roles.includes("readonly") ? (
+              null
+            ) : 
             <div className="col-md-6">
               <h3 style={{textAlign:"center"}}>Add Persons</h3>
               <AddEditPerson edit={this.edit} editPerson={this.state.person} onEdit={this.onEdit} add={this.add}/>
-            </div>
-            ) : null}
+            </div>}
           </div>
   
         </div>

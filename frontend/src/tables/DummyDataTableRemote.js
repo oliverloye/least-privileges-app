@@ -63,9 +63,9 @@ class App extends Component {
     ];
     return (
       <div>
-        <h3>Build Table Remote</h3>
+        <h3>Sales Department</h3>
         <NavLink activeClassName="active" to="/profilepage">
-          <button className="btn btn-default">Go Back</button>
+          <button className="btn btn-primary">Back</button>
         </NavLink>
         <hr/>
         <BootstrapTable

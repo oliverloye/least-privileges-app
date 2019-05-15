@@ -86,8 +86,10 @@ export default class AddEditPerson extends Component {
             </div>
           </div>
         </form>
-        <p>{JSON.stringify(this.state.person)}</p>
+        
       </div>
     )
   }
 }
+
+//<p>{JSON.stringify(this.state.person)}</p>

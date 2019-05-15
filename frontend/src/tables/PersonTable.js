@@ -66,13 +66,24 @@ class PersonTable extends Component {
     render() {
         return (
             <div>
-                <table className="table">
-                    {this.head()}
-                    {this.body()}
-                </table>
-                <NavLink activeClassName="active" to="/profilepage">
-                    <button className="btn btn-default">Back</button>
-                </NavLink>
+            {this.props.facade.getProfile().roles.includes("admin") ? (
+                <div>
+                    <NavLink activeClassName="active" to="/profilepage">
+                        <button className="btn btn-primary mb-2">Back</button>
+                    </NavLink>,
+                    <table className="table">
+                        {this.head()}
+                        {this.body()}
+                    </table>
+                </div>
+                ) : <div>
+                        <h2>Access denied!</h2>
+                        <p>Only "boss" has access to this page!</p>
+                        <NavLink activeClassName="active" to="/profilepage">
+                            <button className="btn btn-primary">Back</button>
+                        </NavLink>
+                        </div>
+            }
             </div>
         )
     }
